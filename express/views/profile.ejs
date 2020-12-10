@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <tittle>Web Tittle</tittle>
+
+  <head>
+      <link href="assets/style.css" rel="stylesheet" type="text/css" />
+
+  </head>
+  
+  <body>
+    <%- include('partials/nav.ejs') %>
+
+    <h1 >  <%= person %> 's' profile page bro !!!</h1>
+    <h2  > He is <%= data.age %>  </h2>
+    <p style="font-weight:bold">  and <%= data.job %>!</p>
+    <h3  > Other facts :  </h3>
+    <ul>
+        <% data.list.forEach(function(item){ %>
+            <li  > <%= item %> </li>
+        <% }); %>
+    </ul>
+
+  </body>
+</html>
