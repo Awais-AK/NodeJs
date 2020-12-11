@@ -76,23 +76,26 @@ request({
 
 
 // -> Empty json for training
-
-
-request({
-    url: "http://localhost:9090/engines/tp_ur/jobs",
-    method: "POST",
-    json: {},
-}, function (error, response, body) {
-    if (!error ) {
-        console.log(body)
-        console.log("response.statusCode: " + response.statusCode)
-        console.log("response.statusText: " + response.statusMessage)
-    }
-    else {
-
-        console.log("error: " + error)
-    }
-})
+var time = 0;
+var timer = setInterval(function(){
+    console.log(time + "seconds ")
+    time += 3;
+    request({
+        url: "http://localhost:9090/engines/tp_ur/jobs",
+        method: "POST",
+        json: {},
+    }, function (error, response, body) {
+        if (!error ) {
+            console.log(body)
+            console.log("response.statusCode: " + response.statusCode)
+            console.log("response.statusText: " + response.statusMessage)
+        }
+        else {
+    
+            console.log("error: " + error)
+        }
+    })    
+},3000);
 
 // -> Query 
 
